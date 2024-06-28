@@ -18,5 +18,6 @@ func (s Server) Start() {
 	s.http.HandleFunc("/", func(rw http.ResponseWriter, r *http.Request) {
 		rw.Write([]byte("Hello World"))
 	})
+	router(s.http)
 	log.Fatal(http.ListenAndServe(":8080", s.http))
 }
